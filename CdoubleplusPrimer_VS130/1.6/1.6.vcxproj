@@ -11,9 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{897A1020-0157-410F-955D-797D2390CBA1}</ProjectGuid>
-    <RootNamespace>My01_Introduction</RootNamespace>
-    <ProjectName>1.1</ProjectName>
+    <ProjectGuid>{48EF9DD3-9FB6-48EE-830B-03B0A31B0D38}</ProjectGuid>
+    <RootNamespace>My16</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -64,6 +63,9 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Sales_item.h" />
+  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
