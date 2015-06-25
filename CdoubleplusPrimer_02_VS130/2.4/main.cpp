@@ -46,5 +46,89 @@ int main(){
 		//p2 = p1; // not good 포인터 한정자
 		//ic = *p3; // not good 한정자 수정불가
 	}
+
+	//2.30
+	{
+		const int  v2 = 0;
+		int v1 = v2;
+		int *p1 = &v1, &r1 = v1;
+		const int *p2 = &v2, /**const p3 = &i,*/ &r2 = v2;
+		
+		//2.31
+		r1 = v2;
+		//p1 = p2;
+		p2 = p1;
+		//p1 = p3;
+		//p2 = p3; 
+	}
+
+	// 2.32
+	{
+		constexpr int null = 0, *p = null;
+	}
+
+	// 2.33
+	{
+		int i = 0, &r = i;
+		auto a = r;
+
+		const int ci = i, &cr = ci;
+		auto b = ci;
+		auto c = cr;
+		auto d = &i;
+		auto e = &ci;
+		const auto f = ci; 
+
+		auto &g = ci; // const int &
+		//auto &h = 42; 
+		const auto &j = 42;
+
+		auto k = ci, &l = i; // k is int, l in int&
+		auto &m = ci, *p = &ci; // m in const int&, p const int
+		auto &n = i/*, *p2 = &ci*/; // ci is const int
+
+		a = 42; // (int) a = 42;
+		b = 42; // (int) b = 42;
+		c = 42; // (int) c = 42;
+		//d = 42; // (int*) d = 42 ->bad
+		//e = 42; // (const int*) e = 42 -> bad
+		//g = 42; // const int &g = 42// const reference
+	}
+
+	// 2.34 pass
+	{
+
+	}
+
+	// 2.35
+	{
+		const int i = 42;
+		auto j = i; // int
+		const auto &k = i; // const int &
+		auto *p = &i; // const int *
+		const auto j2 = i, // const int
+		&k2 = i; //const int &
+	}
+
+	// 2.36
+	{
+		int a = 3, b = 4;
+		decltype(a) c = a; // int c = a;
+		decltype((b)) d = a; // int& d = a;
+		++c; // c = 4;
+		++d; // a = 4;
+	}
+
+	// 2.37
+	{
+		int a = 3, b = 4;
+		decltype(a) c = a;  // int c = a;
+		decltype(a = b) d = a; // int& d = a;
+	}
+
+	// 2.38
+	{
+		// decltype에서의 추론은 대상 표현식의 형식에 의존
+	}
 	return 0;
 }
